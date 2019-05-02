@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8b13976d-f281-4344-a225-e3cd8759a0c1" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="githubtestFlow" doc:id="3cb0665a-110a-4591-b4c1-4178e038d324" >
+		<http:listener doc:name="Listener" doc:id="98b97b9a-1967-4940-b911-ac28923a493f" config-ref="HTTP_Listener_config" path="/git"/>
+		<set-payload value='#["Hello Tewedage"]' doc:name="Set Payload" doc:id="e79ceffe-333c-4129-8734-a90490638c30" />
+	</flow>
+</mule>
